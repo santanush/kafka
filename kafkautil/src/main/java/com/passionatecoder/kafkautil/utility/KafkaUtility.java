@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.AdminClientConfig;
+import org.apache.kafka.clients.admin.CreateTopicsResult;
 import org.apache.kafka.clients.admin.DescribeTopicsResult;
 import org.apache.kafka.clients.admin.ListTopicsOptions;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -40,7 +41,7 @@ public class KafkaUtility {
 		if(null == client) {
 			client = AdminClient.create(getAdminConfig());
 		}
-		//Returning the clent
+		//Returning the clent after the call
 		return client;
 	}
 	
@@ -80,8 +81,7 @@ public class KafkaUtility {
 			
 			e.printStackTrace();
 		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("Error getting topic names",e);
 		}
 		return topicNames;
 	}
@@ -104,7 +104,7 @@ public class KafkaUtility {
 	    	DescribeTopicsResult result = client.describeTopics(topics);
 		      result.values().forEach((key, value) -> {
 		        try {
-		          LOGGER.info(key + ": " + value.get());
+		          LOGGER.info(key + ":  " + value.get());
 		        } catch (InterruptedException e) {
 		          Thread.currentThread().interrupt();
 		        } catch (ExecutionException e) {
@@ -194,7 +194,7 @@ public class KafkaUtility {
 //		createTopic("in-topic2",5,1);
 //		createTopic("out-topic2",5,1);
 //		createTopic("audit-topic2",5,1);
-		createTopic("testnifi",5,1);
+		createTopic("testnifi1",5,1);
 		printTopicDescription();
 		//createTopic(PropertiesUtil.getDeliveryAvroTopic(),1,1);
 		//createTopic(PropertiesUtil.getDeliveryStringTopic(),1,1);
