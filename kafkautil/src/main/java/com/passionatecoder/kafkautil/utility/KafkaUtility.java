@@ -40,6 +40,7 @@ public class KafkaUtility {
 		if(null == client) {
 			client = AdminClient.create(getAdminConfig());
 		}
+		//Returning the clinet
 		return client;
 	}
 	
