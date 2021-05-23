@@ -29,7 +29,7 @@ The Job utilizes **punctuate()** method every 30 minutes and stores this informa
 Further this streaming Job utilizes below class for transforming input JSON messages to CAR object and also performs the state store update and punctuation method
 
 **Validate the output in state table**
-CarMovementCount.jpg
+![Image of Metadata car tracking table](https://github.com/santanush/kafka/blob/master/kafkausecase/CarMovementCount.JPG)
 
     
     
