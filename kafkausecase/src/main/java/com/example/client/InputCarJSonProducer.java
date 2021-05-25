@@ -15,13 +15,11 @@ import com.example.utility.PropertiesUtil;
 
 public class InputCarJSonProducer {
 	private static final Logger LOGGER = LoggerFactory.getLogger(InputCarJSonProducer.class);
-	public void sendDeliveryMessage(String key,List<String> messages) throws Exception{
-		
-		 
+	public void sendDeliveryMessage(String key,List<String> messages, String topic) throws Exception{		 
 		KafkaProducer<String, String> producer = KafkaUtility.createProducer("car-info-producer", StringSerializer.class, StringSerializer.class);
 		for(String record : messages) {
 			LOGGER.info("Message is :"+record);
-			producer.send(new ProducerRecord<String, String>(PropertiesUtil.getInputTopic(), key, record), new Callback() {
+			producer.send(new ProducerRecord<String, String>(topic, key, record), new Callback() {
 		          @Override
 		          public void onCompletion(RecordMetadata m, Exception e) {
 		        	  LOGGER.info("Message sent");

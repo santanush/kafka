@@ -12,7 +12,8 @@ public class KafkaUtilityTest {
 		//System.out.println("**************" +PropertiesUtil.getDQTopic());
 		KafkaUtility.getAllTopics();
 	
-		KafkaUtility.createTopic(PropertiesUtil.getInputTopic(),5,1);
+		//KafkaUtility.createTopic(PropertiesUtil.getInputTopic(),5,1);
+		KafkaUtility.createTopic(PropertiesUtil.getInputTopicForApi(), 4, 1);
 		KafkaUtility.printTopicDescription();
 		
 	}

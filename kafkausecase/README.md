@@ -31,6 +31,26 @@ Further this streaming Job utilizes below class for transforming input JSON mess
 **Validate the output in state table**
 ![Image of Metadata car tracking table](https://github.com/santanush/kafka/blob/master/kafkausecase/CarMovementCount.JPG)
 
+### UseCase-2 Interactive Query Kafka  State Store
+This use cased implements interacting with Kafka State Store using RRST API.
+This use case utilizes three main components
+1. A kafka streaming job that reads data from incoming **example-input-query-topic1**
+2. A value transformer that transforms incoming CAR json to CAR object and maintains the total CAR count and different CAR type count in a KeyValue store
+3. A REST API endpoint implementation that contains all teh REST API's to query the state store in real-time
+
+|   Class|Description   |
+|---|---|
+| com.example.stream.StreamJobWithStateQuery  |  Kafka streaming job for this use case|
+| com.example.stream.StateQueryCountTransformer |  Value Transformer implementation for maintaining the state store |
+|com.example.stream.StateStoreQueryAPI | Jersy based REST API implementation to query state store|
+
+**REST API end points**
+|   End Point|Description   |
+|---|---|
+|http://localhost:4001/carmovementtracker/bytype/:carType|Get the real time count of the specific CAR type |
+|http://localhost:4001/carmovementtracker/all|Get all the car types count along with total CARS passed count |
+
+
     
     
 

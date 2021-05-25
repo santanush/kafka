@@ -27,5 +27,8 @@ public class PropertiesUtil {
 		return props.getProperty("topic.error");
 	}
 	
+	public static String getInputTopicForApi() {
+		return props.getProperty("topic.input.query");
+	}
 	
 }
