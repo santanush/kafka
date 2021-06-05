@@ -23,7 +23,7 @@ It is assumed there is a utility that sends number of CARS passed through a spec
 this job also maintains the number of *hatchback* and *sedan* CARS passing through that location and periodically saves this information to a metdata database.
 The car movement details are maintained in **CAR_MOVEMENT_COUNT** table. The table details is given in dbScripts.sql file.
 The Job utilizes **punctuate()** method every 30 minutes and stores this information in a table within *Postgres* database. This database information is maintained within kafkaConfig.properties. 
-
+ 
     com.example.stream.StreamJobWithState
 
 Further this streaming Job utilizes below class for transforming input JSON messages to CAR object and also performs the state store update and punctuation method
