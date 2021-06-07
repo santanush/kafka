@@ -9,9 +9,9 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 
 public class KafkaUtilityTest {
 	public static void main(String[] args) throws JsonGenerationException, JsonMappingException, IOException {
-		//System.out.println("**************" +PropertiesUtil.getDQTopic());
+		//Call utility method to get all topics
 		KafkaUtility.getAllTopics();
-	
+		//Call methods to create topic
 		//KafkaUtility.createTopic(PropertiesUtil.getInputTopic(),5,1);
 		KafkaUtility.createTopic(PropertiesUtil.getInputTopicForApi(), 4, 1);
 		KafkaUtility.printTopicDescription();
